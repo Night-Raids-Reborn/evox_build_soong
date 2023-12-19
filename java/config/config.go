@@ -79,12 +79,12 @@ var (
 func init() {
 	pctx.Import("github.com/google/blueprint/bootstrap")
 
-	exportedVars.ExportStringStaticVariable("JavacHeapSize", "3072M")
+	exportedVars.ExportStringStaticVariable("JavacHeapSize", "9216M")
 	exportedVars.ExportStringStaticVariable("JavacHeapFlags", "-J-Xmx${JavacHeapSize}")
 
 	// ErrorProne can use significantly more memory than javac alone, give it a higher heap
 	// size (b/221480398).
-	exportedVars.ExportStringStaticVariable("ErrorProneHeapSize", "5120M")
+	exportedVars.ExportStringStaticVariable("ErrorProneHeapSize", "10240M")
 	exportedVars.ExportStringStaticVariable("ErrorProneHeapFlags", "-J-Xmx${ErrorProneHeapSize}")
 
 	// D8 invocations are shorter lived, so we restrict their JIT tiering relative to R8.
